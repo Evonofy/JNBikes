@@ -1,5 +1,5 @@
-# [TechStacks]()
-🎃 Tech stacks to use in our internal projects.
+# [Borghi Imóveis](borghiimoveis)
+:house: Borghi Imóveis is a institutional website.
 
 <div align="center">
 
@@ -14,7 +14,7 @@
 
 
 # About The Project
-This is repo made as template to projects that new more effort and have higher complexity if comparing to landing pages and institutional sites.
+Borghi Imóveis is our first project made to a client use, one of many to come. It is a institutional website about services in properties area. 
 
 <div align="center">
   <img width="400" height="300" src="https://images.saymedia-content.com/.image/t_share/MTc0NDYxNzg1MjM4MjgzNjI0/basic-html-part-1-hello-world.jpg">
@@ -32,4 +32,4 @@ This is repo made as template to projects that new more effort and have higher c
 
 <br>
 
-[⬆ Back To Top](#TechStacks)<br>
+[⬆ Back To Top](#borghi-imóveis)<br>
