@@ -14,10 +14,10 @@
 
 
 # About The Project
-Borghi Imóveis is our first project made to a client use, one of many to come. It is a institutional website about services in properties area. 
+Borghi Imóveis is one of our first projects made for a client use, one of many to come. It is mainly an institutional website about selling properties to your average citizen.
 
 <div align="center">
-  <img width="400" height="300" src="https://images.saymedia-content.com/.image/t_share/MTc0NDYxNzg1MjM4MjgzNjI0/basic-html-part-1-hello-world.jpg">
+  <img width="400" height="300" src="https://img.freepik.com/fotos-gratis/casa-isolada-no-campo_1303-23773.jpg?w=826&t=st=1674910544~exp=1674911144~hmac=32250de5d95d9f0f429d568fb325745d43cff946848383f9cff0e66638a10fe6">
 </div>
 
 # Technologies And Packages
