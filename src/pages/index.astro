@@ -1,0 +1,354 @@
+---
+import Layout from "@/components/Layout.astro"
+import Header from "@/components/Header.astro"
+import { Button } from "@/components/Button"
+
+import { Image } from "@astrojs/image/components"
+import Storefront from "@/images/storefront.jpg"
+
+import bike1 from "@/images/bikes/1.jpg"
+import bike2 from "@/images/bikes/2.jpg"
+import bike3 from "@/images/bikes/3.jpg"
+import bike4 from "@/images/bikes/4.jpg"
+
+import { Form } from "@/components/Form"
+
+import Whatsapp from "@/images/whatsapp.svg"
+import GoogleMaps from "@/images/google-maps.png"
+import Waze from "@/images/waze.png"
+import Maps from "@/images/maps.png"
+import Phone from "@/images/phone.svg"
+import Pin from "@/images/pin.svg"
+
+const storeOpen = true
+---
+
+<Layout
+  title="JN Bicicletaria"
+  description="Realizamos reparos, pinturas, trocas de pneu, vendemos bicicletas e acessórios. Tudo relacionado a bicicletas você encontra aqui!"
+>
+  <Header />
+  <main>
+    <section class="flex flex-col">
+      <div class="relative py-16 px-12">
+        <Image
+          width={375}
+          height={268}
+          src={Storefront}
+          alt="Uma mulher com uma bicicleta na frente da JN Bicicletaria do Brooklin"
+          class="absolute w-full h-full inset-0 m-auto brightness-[30%] object-cover -z-10"
+        />
+
+        <div class="flex flex-col gap-2 z-20">
+          <span class="font-bold text-sm text-lime-300">
+            {storeOpen ? "Aberto Agora 👋" : "Fechada agora"}
+          </span>
+
+          <h1 class="text-slate-50 font-bold text-3xl">
+            A
+            <span class="underline decoration-wavy text-primary-base">
+              Melhor
+            </span>
+            Bicicletaria Do Brooklin
+          </h1>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-4 w-full p-6">
+        <p class="text-base text-slate-800">
+          A mais de 5 anos realizamos os mais diversos serviços relacionados à
+          bicicletas.
+        </p>
+
+        <Button client:only href="#orcamento" variant="primary" shadow>
+          Fazer Orçamento
+        </Button>
+      </div>
+    </section>
+
+    <section class="flex flex-col gap-6 px-6 py-8 items-center">
+      <h2 class="text-2xl text-center font-bold text-slate-800">
+        🚲 Venha Ver Nossas Bicicletas
+      </h2>
+
+      <p class="text-center text-slate-600 text-base">
+        Possuimos bicicletas esportivas, infantis e casuais.
+      </p>
+
+      <ul class="flex flex-wrap w-full gap-4 justify-center">
+        <li class="w-[calc(50% - 8px)]">
+          <Image
+            width={156}
+            height={120}
+            src={bike1}
+            alt="Imagem de uma bicicleta"
+            class="rounded object-cover w-full h-full"
+          />
+        </li>
+
+        <li class="w-[calc(50% - 8px)]">
+          <Image
+            width={156}
+            height={120}
+            src={bike2}
+            alt="Imagem de uma bicicleta"
+            class="rounded object-cover w-full h-full"
+          />
+        </li>
+
+        <li class="w-[calc(50% - 8px)]">
+          <Image
+            width={156}
+            height={120}
+            src={bike3}
+            alt="Imagem de uma bicicleta"
+            class="rounded object-cover w-full h-full"
+          />
+        </li>
+
+        <li class="w-[calc(50% - 8px)]">
+          <Image
+            width={156}
+            height={120}
+            src={bike4}
+            alt="Imagem de uma bicicleta"
+            class="rounded object-cover w-full h-full"
+          />
+        </li>
+      </ul>
+
+      <Button
+        external
+        href="https://www.google.com"
+        client:only
+        variant="whatsapp"
+      >
+        <Image width={20} height={20} src={Whatsapp} alt="Icone do whatsapp" />
+
+        Entrar em contato
+      </Button>
+    </section>
+
+    <section id="orcamento" class="flex flex-col gap-6 px-6 py-8 items-center">
+      <h2 class="text-2xl text-center font-bold text-slate-800">
+        🔧 Qual Serviço Você Necessita?
+      </h2>
+
+      <p class="text-slate-600 text-base">
+        Aqui na JN Bicicletaria oferecemos diversos serviços, desde funilaria,
+        troca de pneu, até venda de acessórios e venda de bicicletas inteiras.
+      </p>
+
+      <p class="text-slate-600 text-base">
+        Escolha um dos serviços abaixo que melhor condizem com a sua
+        necessidade.
+      </p>
+
+      <Form client:idle />
+    </section>
+
+    <section class="flex flex-col gap-6 px-6 py-8 items-center">
+      <h2 class="text-2xl text-center font-bold text-slate-800">
+        🧤 Também Somos Uma Loja De Acessórios!
+      </h2>
+
+      <p class="text-slate-600 text-base">
+        Temos todos os acessórios que você precisa para a sua bicicleta.
+      </p>
+
+      <ul class="flex flex-wrap w-full gap-4 justify-center">
+        <li class="w-[calc(50% - 8px)]">
+          <Image
+            width={156}
+            height={120}
+            src={bike1}
+            alt="Imagem de uma bicicleta"
+            class="rounded object-cover w-full h-full"
+          />
+        </li>
+
+        <li class="w-[calc(50% - 8px)]">
+          <Image
+            width={156}
+            height={120}
+            src={bike2}
+            alt="Imagem de uma bicicleta"
+            class="rounded object-cover w-full h-full"
+          />
+        </li>
+
+        <li class="w-[calc(50% - 8px)]">
+          <Image
+            width={156}
+            height={120}
+            src={bike3}
+            alt="Imagem de uma bicicleta"
+            class="rounded object-cover w-full h-full"
+          />
+        </li>
+
+        <li class="w-[calc(50% - 8px)]">
+          <Image
+            width={156}
+            height={120}
+            src={bike4}
+            alt="Imagem de uma bicicleta"
+            class="rounded object-cover w-full h-full"
+          />
+        </li>
+      </ul>
+
+      <Button
+        client:only
+        variant="whatsapp"
+        href="https://www.google.com"
+        external
+      >
+        <Image width={20} height={20} src={Whatsapp} alt="Icone do whatsapp" />
+
+        Entrar em contato
+      </Button>
+    </section>
+
+    <!-- <section class="flex flex-col gap-6 px-6 py-8 items-center bg-slate-200 border-y border-slate-300">
+      <h2 class="text-2xl text-center font-bold text-slate-800">
+        ❤️ Depoimentos
+      </h2>
+
+      <p class="text-slate-600 text-base">
+        Temos todos os acessórios que você precisa para a sua bicicleta.
+      </p>
+
+      <ul class="flex flex-wrap w-full gap-4 justify-center">
+        <li class="w-[calc(50% - 8px)]">
+          <Image
+            width={156}
+            height={120}
+            src={bike1}
+            alt="Imagem de uma bicicleta"
+            class="rounded object-cover w-full h-full"
+          />
+        </li>
+
+        <li class="w-[calc(50% - 8px)]">
+          <Image
+            width={156}
+            height={120}
+            src={bike2}
+            alt="Imagem de uma bicicleta"
+            class="rounded object-cover w-full h-full"
+          />
+        </li>
+
+        <li class="w-[calc(50% - 8px)]">
+          <Image
+            width={156}
+            height={120}
+            src={bike3}
+            alt="Imagem de uma bicicleta"
+            class="rounded object-cover w-full h-full"
+          />
+        </li>
+
+        <li class="w-[calc(50% - 8px)]">
+          <Image
+            width={156}
+            height={120}
+            src={bike4}
+            alt="Imagem de uma bicicleta"
+            class="rounded object-cover w-full h-full"
+          />
+        </li>
+      </ul>
+
+      <Button
+        client:only
+        variant="whatsapp"
+        href="https://www.google.com"
+        external
+      >
+        <Image width={20} height={20} src={Whatsapp} alt="Icone do whatsapp" />
+        Entrar em contato
+      </Button>
+    </section> -->
+
+    <section class="flex flex-col gap-6 px-6 py-8 items-center">
+      <h2 class="text-2xl text-center font-bold text-slate-800">
+        📌 Localização
+      </h2>
+
+      <span class="font-bold text-sm text-lime-600">
+        {storeOpen ? "Aberto Agora 👋" : "Fechada agora"}
+      </span>
+
+      <p class="text-slate-600 text-base">Avenida Nova Independência</p>
+      <p class="text-slate-600 text-base">N° 449</p>
+      <p class="text-slate-600 text-base">Bairro - Brooklin</p>
+
+      <div class="w-full flex items-center justify-between">
+        <button
+          class="py-3 px-6 font-bold rounded-full bg-neutral-50 border border-neutral-200 flex items-center gap-2 hover:bg-neutral-100 transition-colors"
+        >
+          Google Maps
+          <Image
+            width={12}
+            height={18}
+            src={GoogleMaps}
+            alt="Icone do google maps"
+          />
+        </button>
+
+        <button
+          class="py-3 font-bold px-6 rounded-full bg-sky-500 flex items-center gap-2 text-white hover:bg-sky-600 transition-colors"
+        >
+          Usar Waze
+          <Image width={18} height={18} src={Waze} alt="Icone do Waze" />
+        </button>
+      </div>
+
+      <Image
+        width={327}
+        height={195}
+        src={Maps}
+        alt="Mapa da região do Brooklin"
+        class="w-full object-cover"
+      />
+
+      <footer class="w-full flex items-center justify-between">
+        <Button
+          client:only
+          variant="whatsapp"
+          href="https://www.google.com"
+          external
+        >
+          <Image
+            width={20}
+            height={20}
+            src={Whatsapp}
+            alt="Icone do whatsapp"
+          />
+          Whatsapp
+        </Button>
+
+        <ul class="flex flex-col gap-2">
+          <li class="w-full flex items-center gap-2">
+            <Image
+              width={16}
+              height={16}
+              src={Phone}
+              alt="Icone de um telefone"
+            />
+
+            <p class="text-sm text-slate-600 font-bold">(11) 95951-5336</p>
+          </li>
+
+          <li class="w-full flex items-center gap-2">
+            <Image width={14} height={18} src={Pin} alt="Icone de um pin" />
+
+            <p class="text-sm text-slate-600 font-bold">CEP: 04570-000</p>
+          </li>
+        </ul>
+      </footer>
+    </section>
+  </main>
+</Layout>
