@@ -1,0 +1,27 @@
+---
+export interface Props {
+  description: string
+  name: string
+}
+
+const { description, name } = Astro.props
+
+import Star from "@/images/star.svg"
+import { Image } from "@astrojs/image/components"
+---
+
+<div class="swiper-slide border border-slate-300 rounded p-4 gap-3 !h-max">
+  <p class="text-slate-600">{description}</p>
+
+  <footer class="w-full flex items-center justify-between">
+    <strong class="font-bold text-base text-slate-800">{name}</strong>
+
+    <div class="flex items-center">
+      <Image width={16} height={16} src={Star} alt="Estrela dourada" />
+      <Image width={16} height={16} src={Star} alt="Estrela dourada" />
+      <Image width={16} height={16} src={Star} alt="Estrela dourada" />
+      <Image width={16} height={16} src={Star} alt="Estrela dourada" />
+      <Image width={16} height={16} src={Star} alt="Estrela dourada" />
+    </div>
+  </footer>
+</div>

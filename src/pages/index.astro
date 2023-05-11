@@ -1,6 +1,7 @@
 ---
 import Layout from "@/components/Layout.astro"
 import Header from "@/components/Header.astro"
+import Section from "@/components/Section.astro"
 import { Button } from "@/components/Button"
 
 import { Image } from "@astrojs/image/components"
@@ -10,6 +11,7 @@ import bike1 from "@/images/bikes/1.jpg"
 import bike2 from "@/images/bikes/2.jpg"
 import bike3 from "@/images/bikes/3.jpg"
 import bike4 from "@/images/bikes/4.jpg"
+import Review from "@/components/Review.astro"
 
 import { Form } from "@/components/Form"
 
@@ -30,31 +32,36 @@ const storeOpen = true
   <Header />
   <main>
     <section class="flex flex-col">
-      <div class="relative py-16 px-12">
+      <div class="relative py-16 px-12 lg:py-20 lg:px-32">
         <Image
-          width={375}
-          height={268}
+          width={1920}
+          height={528}
           src={Storefront}
           alt="Uma mulher com uma bicicleta na frente da JN Bicicletaria do Brooklin"
-          class="absolute w-full h-full inset-0 m-auto brightness-[30%] object-cover -z-10"
+          class="absolute w-full h-full inset-0 m-auto object-cover brightness-[30%] -z-10"
         />
 
-        <div class="flex flex-col gap-2 z-20">
-          <span class="font-bold text-sm text-lime-300">
+        <div class="flex flex-col gap-2 z-20 lg:w-[600px]">
+          <span class="font-bold text-sm lg:text-xl text-lime-300">
             {storeOpen ? "Aberto Agora 👋" : "Fechada agora"}
           </span>
 
-          <h1 class="text-slate-50 font-bold text-3xl">
+          <h1 class="text-slate-50 font-bold text-3xl lg:text-6xl">
             A
-            <span class="underline decoration-wavy text-primary-base">
-              Melhor
-            </span>
+            <span class="underline text-primary-base"> Melhor</span>
             Bicicletaria Do Brooklin
           </h1>
+
+          <p class="text-xl text-neutral-400 lg:block hidden">
+            A mais de 5 anos realizamos os mais diversos serviços relacionados à
+            bicicletas.
+          </p>
+
+          <Button client:only variant="primary">Fazer Orçamento</Button>
         </div>
       </div>
 
-      <div class="flex flex-col gap-4 w-full p-6">
+      <div class="flex flex-col gap-4 w-full p-6 lg:hidden">
         <p class="text-base text-slate-800">
           A mais de 5 anos realizamos os mais diversos serviços relacionados à
           bicicletas.
@@ -66,17 +73,38 @@ const storeOpen = true
       </div>
     </section>
 
-    <section class="flex flex-col gap-6 px-6 py-8 items-center">
-      <h2 class="text-2xl text-center font-bold text-slate-800">
-        🚲 Venha Ver Nossas Bicicletas
-      </h2>
+    <Section id="bicicletas" className="lg:gap-8 lg:py-12 lg:px-6 lg:flex-row">
+      <div class="flex flex-col gap-6 lg:items-start">
+        <h2
+          class="text-2xl md:text-5xl text-center lg:text-left font-bold text-slate-800"
+        >
+          🚲 Venha Ver Nossas Bicicletas
+        </h2>
 
-      <p class="text-center text-slate-600 text-base">
-        Possuimos bicicletas esportivas, infantis e casuais.
-      </p>
+        <p class="text-center text-slate-600 text-base lg:text-left lg:text-xl">
+          Possuimos bicicletas esportivas, infantis e casuais.
+        </p>
+
+        <Button
+          external
+          href="https://www.google.com"
+          client:only
+          variant="whatsapp"
+          className="hidden lg:flex"
+        >
+          <Image
+            width={20}
+            height={20}
+            src={Whatsapp}
+            alt="Icone do whatsapp"
+          />
+
+          Entrar em contato
+        </Button>
+      </div>
 
       <ul class="flex flex-wrap w-full gap-4 justify-center">
-        <li class="w-[calc(50% - 8px)]">
+        <li class="w-[calc(50% - 8px)] lg:w-full lg:h-[224px]">
           <Image
             width={156}
             height={120}
@@ -86,7 +114,7 @@ const storeOpen = true
           />
         </li>
 
-        <li class="w-[calc(50% - 8px)]">
+        <li class="block lg:hidden w-[calc(50% - 8px)]">
           <Image
             width={156}
             height={120}
@@ -96,7 +124,7 @@ const storeOpen = true
           />
         </li>
 
-        <li class="w-[calc(50% - 8px)]">
+        <li class="block lg:hidden w-[calc(50% - 8px)]">
           <Image
             width={156}
             height={120}
@@ -106,7 +134,7 @@ const storeOpen = true
           />
         </li>
 
-        <li class="w-[calc(50% - 8px)]">
+        <li class="block lg:hidden w-[calc(50% - 8px)]">
           <Image
             width={156}
             height={120}
@@ -122,37 +150,44 @@ const storeOpen = true
         href="https://www.google.com"
         client:only
         variant="whatsapp"
+        className="flex lg:hidden"
       >
         <Image width={20} height={20} src={Whatsapp} alt="Icone do whatsapp" />
 
         Entrar em contato
       </Button>
-    </section>
+    </Section>
 
-    <section id="orcamento" class="flex flex-col gap-6 px-6 py-8 items-center">
-      <h2 class="text-2xl text-center font-bold text-slate-800">
-        🔧 Qual Serviço Você Necessita?
-      </h2>
+    <Section id="orcamento" className="lg:gap-16 lg:py-12 lg:px-6 lg:flex-row">
+      <div class="flex flex-col gap-6">
+        <h2
+          class="text-2xl md:text-5xl text-center lg:text-left font-bold text-slate-800"
+        >
+          🔧 Qual Serviço Você Necessita?
+        </h2>
 
-      <p class="text-slate-600 text-base">
-        Aqui na JN Bicicletaria oferecemos diversos serviços, desde funilaria,
-        troca de pneu, até venda de acessórios e venda de bicicletas inteiras.
-      </p>
+        <p class="text-center text-slate-600 text-base lg:text-left lg:text-xl">
+          Aqui na JN Bicicletaria oferecemos diversos serviços, desde funilaria,
+          troca de pneu, até venda de acessórios e venda de bicicletas inteiras.
+        </p>
 
-      <p class="text-slate-600 text-base">
-        Escolha um dos serviços abaixo que melhor condizem com a sua
-        necessidade.
-      </p>
+        <p class="text-center text-slate-600 text-base lg:text-left lg:text-xl">
+          Escolha um dos serviços abaixo que melhor condizem com a sua
+          necessidade.
+        </p>
+      </div>
 
       <Form client:idle />
-    </section>
+    </Section>
 
-    <section class="flex flex-col gap-6 px-6 py-8 items-center">
-      <h2 class="text-2xl text-center font-bold text-slate-800">
+    <Section id="acessorios">
+      <h2
+        class="text-2xl md:text-5xl text-center lg:text-left font-bold text-slate-800"
+      >
         🧤 Também Somos Uma Loja De Acessórios!
       </h2>
 
-      <p class="text-slate-600 text-base">
+      <p class="text-center text-slate-600 text-base lg:text-left lg:text-xl">
         Temos todos os acessórios que você precisa para a sua bicicleta.
       </p>
 
@@ -208,84 +243,70 @@ const storeOpen = true
 
         Entrar em contato
       </Button>
-    </section>
+    </Section>
 
-    <!-- <section class="flex flex-col gap-6 px-6 py-8 items-center bg-slate-200 border-y border-slate-300">
-      <h2 class="text-2xl text-center font-bold text-slate-800">
+    <Section id="depoimentos">
+      <h2
+        class="text-2xl md:text-5xl text-center lg:text-left font-bold text-slate-800"
+      >
         ❤️ Depoimentos
       </h2>
 
-      <p class="text-slate-600 text-base">
-        Temos todos os acessórios que você precisa para a sua bicicleta.
-      </p>
-
-      <ul class="flex flex-wrap w-full gap-4 justify-center">
-        <li class="w-[calc(50% - 8px)]">
-          <Image
-            width={156}
-            height={120}
-            src={bike1}
-            alt="Imagem de uma bicicleta"
-            class="rounded object-cover w-full h-full"
+      <div class="swiper mySwiper w-full flex flex-col gap-6">
+        <div class="swiper-wrapper">
+          <Review
+            name="Vitor Gouveia"
+            description="Tooop de mais, excelente serviço e atendimento!! Ganharam mais um cliente, sem dúvidas!!"
           />
-        </li>
-
-        <li class="w-[calc(50% - 8px)]">
-          <Image
-            width={156}
-            height={120}
-            src={bike2}
-            alt="Imagem de uma bicicleta"
-            class="rounded object-cover w-full h-full"
+          <Review
+            name="Vitor Gouveia"
+            description="Tooop de mais, excelente serviço e atendimento!! Ganharam mais um cliente, sem dúvidas!!"
           />
-        </li>
-
-        <li class="w-[calc(50% - 8px)]">
-          <Image
-            width={156}
-            height={120}
-            src={bike3}
-            alt="Imagem de uma bicicleta"
-            class="rounded object-cover w-full h-full"
+          <Review
+            name="Vitor Gouveia"
+            description="Tooop de mais, excelente serviço e atendimento!! Ganharam mais um cliente, sem dúvidas!!"
           />
-        </li>
-
-        <li class="w-[calc(50% - 8px)]">
-          <Image
-            width={156}
-            height={120}
-            src={bike4}
-            alt="Imagem de uma bicicleta"
-            class="rounded object-cover w-full h-full"
+          <Review
+            name="Vitor Gouveia"
+            description="Tooop de mais, excelente serviço e atendimento!! Ganharam mais um cliente, sem dúvidas!!"
           />
-        </li>
-      </ul>
+        </div>
 
-      <Button
-        client:only
-        variant="whatsapp"
-        href="https://www.google.com"
-        external
+        <div class="swiper-pagination !static"></div>
+      </div>
+    </Section>
+
+    <Section id="localizacao">
+      <h2
+        class="text-2xl md:text-5xl text-center lg:text-left font-bold text-slate-800"
       >
-        <Image width={20} height={20} src={Whatsapp} alt="Icone do whatsapp" />
-        Entrar em contato
-      </Button>
-    </section> -->
-
-    <section class="flex flex-col gap-6 px-6 py-8 items-center">
-      <h2 class="text-2xl text-center font-bold text-slate-800">
         📌 Localização
       </h2>
 
-      <span class="font-bold text-sm text-lime-600">
+      <span class="font-bold text-sm text-lime-600 lg:text-xl">
         {storeOpen ? "Aberto Agora 👋" : "Fechada agora"}
       </span>
 
-      <p class="text-slate-600 text-base">Avenida Nova Independência</p>
-      <p class="text-slate-600 text-base">N° 449</p>
-      <p class="text-slate-600 text-base">Bairro - Brooklin</p>
+      <h3
+        class="hidden text-center text-2xl lg:text-4xl text-slate-800 font-bold"
+        data-store-label
+      >
+        A JN Bicicletaria Mais Próxima Está:
+      </h3>
 
-      <div class="w-full flex items-center justify-between">
+      <p class="text-slate-600 text-base lg:text-xl">
+        <span data-store-street>Avenida Nova Independência</span>
+      </p>
+
+      <p class="text-slate-600 text-base lg:text-xl">
+        N° <span data-store-number>449</span>
+      </p>
+
+      <p class="text-slate-600 text-base lg:text-xl">
+        Bairro - <span data-store-bairro>Brooklin</span>
+      </p>
+
+      <div class="w-full lg:w-max flex gap-6 items-center justify-between">
         <button
           class="py-3 px-6 font-bold rounded-full bg-neutral-50 border border-neutral-200 flex items-center gap-2 hover:bg-neutral-100 transition-colors"
         >
@@ -295,6 +316,7 @@ const storeOpen = true
             height={18}
             src={GoogleMaps}
             alt="Icone do google maps"
+            class="rounded"
           />
         </button>
 
@@ -307,14 +329,16 @@ const storeOpen = true
       </div>
 
       <Image
-        width={327}
-        height={195}
+        width={1052}
+        height={477}
         src={Maps}
         alt="Mapa da região do Brooklin"
-        class="w-full object-cover"
+        class="w-full lg:h-[477px] object-cover"
       />
 
-      <footer class="w-full flex items-center justify-between">
+      <footer
+        class="w-full flex items-center justify-between lg:justify-center gap-16"
+      >
         <Button
           client:only
           variant="whatsapp"
@@ -349,6 +373,8 @@ const storeOpen = true
           </li>
         </ul>
       </footer>
-    </section>
+    </Section>
   </main>
+
+  <script src="../locate-store.ts"></script>
 </Layout>

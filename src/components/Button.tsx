@@ -1,4 +1,10 @@
-import { FunctionComponent, memo, ReactNode } from "react"
+import {
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  FunctionComponent,
+  memo,
+  ReactNode,
+} from "react"
 
 type Variants = "primary" | "whatsapp"
 
@@ -19,25 +25,46 @@ ${
 }
 `
 
-const ButtonRoot: FunctionComponent<{
-  children: ReactNode
-  variant: Variants
-  href?: string
-  shadow?: boolean
-  external?: boolean
-  onClick?: () => void
-}> = ({ children, variant, href, shadow, external = false, onClick }) => {
+type Props = ButtonHTMLAttributes<HTMLButtonElement> &
+  AnchorHTMLAttributes<HTMLAnchorElement> & {
+    children: ReactNode
+    variant: Variants
+    href?: string
+    shadow?: boolean
+    external?: boolean
+    onClick?: () => void
+  }
+
+const ButtonRoot: FunctionComponent<Props> = ({
+  children,
+  variant,
+  href,
+  shadow,
+  external = false,
+  onClick,
+  className: elementClassName,
+  ...props
+}) => {
   const className = buttonStyles({
     shadow,
     variant,
   })
 
   return href ? (
-    <a target={external ? "_blank" : "_self"} href={href} className={className}>
+    <a
+      target={external ? "_blank" : "_self"}
+      href={href}
+      className={`${className} ${elementClassName ?? ""}`}
+      {...props}
+    >
       {children}
     </a>
   ) : (
-    <button onClick={onClick} className={className}>
+    <button
+      onClick={onClick}
+      className={`${className} ${elementClassName ?? ""}`}
+      {...props}
+    >
       {children}
     </button>
   )

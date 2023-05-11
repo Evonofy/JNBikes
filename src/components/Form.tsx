@@ -60,7 +60,7 @@ const Card: FunctionComponent<{
       } px-3 py-6 transition-all duration-300 `}
       style={{
         background: selected
-          ? "linear-gradient(180deg, #FCEFEF 0%, #FCF0F0 100%)"
+          ? "linear-gradient(180deg, #FCEFEF 0%, #FFF9F9 0.01%, #FCF0F0 100%)"
           : "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.1) 100%)",
       }}
       onClick={onClick}

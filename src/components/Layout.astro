@@ -8,7 +8,7 @@ const { title, description } = Astro.props
 ---
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html class="scroll-smooth bg-slate-100" lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
 
@@ -20,9 +20,65 @@ const { title, description } = Astro.props
 
     <title>{title}</title>
     <meta name="description" content={description} />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+
+    <style>
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .swiper-slide {
+        height: max-content !important;
+      }
+
+      :root {
+        --swiper-pagination-bullet-size: 12px;
+        --swiper-pagination-bullet-inactive-color: #d4d4d4;
+        --swiper-theme-color: #dc2626;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"
+    ></script>
   </head>
 
   <body>
     <slot />
+
+    <script defer type="module">
+      const desktop = window.matchMedia("(min-width: 1024px)")
+
+      var swiper = new Swiper(".mySwiper", {
+        pagination: {
+          el: ".swiper-pagination",
+        },
+        spaceBetween: 20,
+        loop: true,
+      })
+
+      desktop.addEventListener("change", () => {
+        if (desktop.matches) {
+          swiper.params.slidesPerView = 2
+        } else {
+          swiper.params.slidesPerView = 1
+        }
+      })
+    </script>
   </body>
 </html>

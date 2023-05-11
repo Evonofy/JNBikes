@@ -5,12 +5,29 @@ import { Image } from "@astrojs/image/components"
 import Icon from "@/images/icon.svg"
 ---
 
-<header class="w-full py-3 px-6 bg-slate-100 flex items-center justify-between">
-  <a href="/">
-    <Image src={Icon} alt="JN Bicicletaria Logo" width={50} height={50} />
-  </a>
+<header class="w-full py-3 px-6 bg-slate-100">
+  <nav class="w-full lg:max-w-5xl flex items-center justify-between m-auto">
+    <a href="/">
+      <Image src={Icon} alt="JN Bicicletaria Logo" width={50} height={50} />
+    </a>
 
-  <Button href="#orcamento" variant="primary" client:only>
-    Fazer Orçamento
-  </Button>
+    <div class="flex items-center gap-12">
+      <a class="text-slate-800 hidden lg:block" href="#bicicletas">
+        Bicicletas
+      </a>
+      <a class="text-slate-800 hidden lg:block" href="#acessorios">
+        Acessórios
+      </a>
+      <a class="text-slate-800 hidden lg:block" href="#depoimentos">
+        Depoimentos
+      </a>
+      <a class="text-slate-800 hidden lg:block" href="#localizacao">
+        Localização e Contato
+      </a>
+
+      <Button href="#orcamento" variant="primary" client:only>
+        Fazer Orçamento
+      </Button>
+    </div>
+  </nav>
 </header>
