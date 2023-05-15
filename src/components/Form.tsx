@@ -19,6 +19,12 @@ const services = [
     description: "Pinturas, Reparos E Trocas",
   },
   {
+    image: General,
+    name: "Outros",
+    slug: "others",
+    description: "Suporte E Devoluções",
+  },
+  {
     image: Tire,
     name: "Bicicletas",
     slug: "bikes",
@@ -29,12 +35,6 @@ const services = [
     name: "Acessórios",
     slug: "accessories",
     description: "Retrovisores E Pedais",
-  },
-  {
-    image: General,
-    name: "Outros",
-    slug: "others",
-    description: "Suporte E Devoluções",
   },
 ] as const
 

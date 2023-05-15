@@ -69,12 +69,13 @@ const { title, description } = Astro.props
           el: ".swiper-pagination",
         },
         spaceBetween: 20,
+        slidesPerView: desktop.matches ? 2 : 1,
         loop: true,
       })
 
       desktop.addEventListener("change", () => {
         if (desktop.matches) {
-          swiper.params.slidesPerView = 3
+          swiper.params.slidesPerView = 2
         } else {
           swiper.params.slidesPerView = 1
         }
